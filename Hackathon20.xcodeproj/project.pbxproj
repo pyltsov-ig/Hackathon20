@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F089E8EA776FE688AC226E9 /* Pods_Hackathon20.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2328AFBA55EDF57B72AD8A76 /* Pods_Hackathon20.framework */; };
+		7857CC9F260DEC0F0069C47B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7857CC9E260DEC0F0069C47B /* Model.swift */; };
 		78CE80B4260CEE3C00114487 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CE80B3260CEE3C00114487 /* AppDelegate.swift */; };
 		78CE80B6260CEE3C00114487 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CE80B5260CEE3C00114487 /* SceneDelegate.swift */; };
 		78CE80B8260CEE3C00114487 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CE80B7260CEE3C00114487 /* ViewController.swift */; };
@@ -17,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16212DD66EDD31E1E5D2FE1A /* Pods-Hackathon20.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackathon20.debug.xcconfig"; path = "Target Support Files/Pods-Hackathon20/Pods-Hackathon20.debug.xcconfig"; sourceTree = "<group>"; };
+		2328AFBA55EDF57B72AD8A76 /* Pods_Hackathon20.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hackathon20.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2439B9D05A2CF58395C8A997 /* Pods-Hackathon20.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackathon20.release.xcconfig"; path = "Target Support Files/Pods-Hackathon20/Pods-Hackathon20.release.xcconfig"; sourceTree = "<group>"; };
+		7857CC9E260DEC0F0069C47B /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		78CE80B0260CEE3C00114487 /* Hackathon20.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hackathon20.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78CE80B3260CEE3C00114487 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78CE80B5260CEE3C00114487 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F089E8EA776FE688AC226E9 /* Pods_Hackathon20.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +51,8 @@
 			children = (
 				78CE80B2260CEE3C00114487 /* Hackathon20 */,
 				78CE80B1260CEE3C00114487 /* Products */,
+				FE81C853A2D9DA2ADB674748 /* Pods */,
+				87AF254F4CC215F487229A5D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,16 +67,34 @@
 		78CE80B2260CEE3C00114487 /* Hackathon20 */ = {
 			isa = PBXGroup;
 			children = (
+				7857CC9E260DEC0F0069C47B /* Model.swift */,
 				78CE80B3260CEE3C00114487 /* AppDelegate.swift */,
 				78CE80B5260CEE3C00114487 /* SceneDelegate.swift */,
 				78CE80B7260CEE3C00114487 /* ViewController.swift */,
+				78CE80C8260CF18A00114487 /* OperationViewController.swift */,
 				78CE80B9260CEE3C00114487 /* Main.storyboard */,
 				78CE80BC260CEE4000114487 /* Assets.xcassets */,
 				78CE80BE260CEE4000114487 /* LaunchScreen.storyboard */,
 				78CE80C1260CEE4000114487 /* Info.plist */,
-				78CE80C8260CF18A00114487 /* OperationViewController.swift */,
 			);
 			path = Hackathon20;
+			sourceTree = "<group>";
+		};
+		87AF254F4CC215F487229A5D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2328AFBA55EDF57B72AD8A76 /* Pods_Hackathon20.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FE81C853A2D9DA2ADB674748 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				16212DD66EDD31E1E5D2FE1A /* Pods-Hackathon20.debug.xcconfig */,
+				2439B9D05A2CF58395C8A997 /* Pods-Hackathon20.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +104,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 78CE80C4260CEE4000114487 /* Build configuration list for PBXNativeTarget "Hackathon20" */;
 			buildPhases = (
+				3FC88EDFE401E05BC7427F3B /* [CP] Check Pods Manifest.lock */,
 				78CE80AC260CEE3C00114487 /* Sources */,
 				78CE80AD260CEE3C00114487 /* Frameworks */,
 				78CE80AE260CEE3C00114487 /* Resources */,
+				8A6218FA059868B166976C11 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,11 +164,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3FC88EDFE401E05BC7427F3B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Hackathon20-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A6218FA059868B166976C11 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Hackathon20/Pods-Hackathon20-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Hackathon20/Pods-Hackathon20-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Hackathon20/Pods-Hackathon20-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		78CE80AC260CEE3C00114487 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7857CC9F260DEC0F0069C47B /* Model.swift in Sources */,
 				78CE80C9260CF18A00114487 /* OperationViewController.swift in Sources */,
 				78CE80B8260CEE3C00114487 /* ViewController.swift in Sources */,
 				78CE80B4260CEE3C00114487 /* AppDelegate.swift in Sources */,
@@ -287,6 +359,7 @@
 		};
 		78CE80C5260CEE4000114487 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16212DD66EDD31E1E5D2FE1A /* Pods-Hackathon20.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -306,6 +379,7 @@
 		};
 		78CE80C6260CEE4000114487 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2439B9D05A2CF58395C8A997 /* Pods-Hackathon20.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

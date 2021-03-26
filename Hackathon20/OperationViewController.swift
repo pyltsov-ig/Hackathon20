@@ -6,21 +6,90 @@
 //
 
 import UIKit
+import RealmSwift
 
-class OperationViewController: UIViewController {
+class OperationViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var textLabel: UILabel!
-    
+    @IBOutlet weak var operImage: UIImageView!
+    @IBOutlet weak var inputSumField: UITextField!
     
     var txt:String = ""
+    var img:UIImage = UIImage(named: "question")!
+    var opr:String = ""
+
+    
+    let realm = try! Realm()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.textLabel.text = txt
+        self.operImage.image = img
+        //self.opr = ""
+        
+        inputSumField.delegate = self
+        
+        print(realm.configuration.fileURL)
+        
+
 
         // Do any additional setup after loading the view.
     }
     
+   // этот метод используем для того, чтобы в поле можно было ввести только циры и знак "."
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == inputSumField {
+            let allowedCharacters = CharacterSet(charactersIn: ".0123456789")
+            let characterSet = CharacterSet(charactersIn: string)
+            return allowedCharacters.isSuperset(of: characterSet)
+        }
+        return true
+    }
+    
+    @IBAction func okBtnAction(_ sender: UIButton) {
+        
+        guard let sum = Float(inputSumField.text!) else {return}
+        
+        switch self.opr{
+        case "put":
+            putMoney(sum: sum)
+        case "get":
+            getMoney(sum: sum)
+        case "chr":
+            chargePhone(sum: sum)
+        default:
+            return
+        }
+        
+    }
+    
+    func putMoney(sum:Float) {
+        
+        let oper = Model()
+        
+        //записываем дату и время
+        let df = DateFormatter()
+        df.dateFormat = "dd-MM-yyyy hh:mm:ss"
+        let now = df.string(from: Date())
+        oper.timeAndDate = now
+        
+        oper.operation = textLabel.text!
+        oper.sum = sum
+        
+        try! realm.write {realm.add(oper)}
+    }
+    
+    func getMoney(sum:Float) {
+        
+    }
+    
+    func chargePhone(sum:Float) {
+        
+    }
+    
+    //func
 
     /*
     // MARK: - Navigation
