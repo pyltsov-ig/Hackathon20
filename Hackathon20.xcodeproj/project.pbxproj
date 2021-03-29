@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5F089E8EA776FE688AC226E9 /* Pods_Hackathon20.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2328AFBA55EDF57B72AD8A76 /* Pods_Hackathon20.framework */; };
 		7857CC9F260DEC0F0069C47B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7857CC9E260DEC0F0069C47B /* Model.swift */; };
+		7857CCB0260E127A0069C47B /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7857CCAF260E127A0069C47B /* HistoryViewController.swift */; };
+		7857CCB4260E4C880069C47B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7857CCB3260E4C880069C47B /* TableViewCell.swift */; };
 		78CE80B4260CEE3C00114487 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CE80B3260CEE3C00114487 /* AppDelegate.swift */; };
 		78CE80B6260CEE3C00114487 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CE80B5260CEE3C00114487 /* SceneDelegate.swift */; };
 		78CE80B8260CEE3C00114487 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CE80B7260CEE3C00114487 /* ViewController.swift */; };
@@ -23,6 +25,8 @@
 		2328AFBA55EDF57B72AD8A76 /* Pods_Hackathon20.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hackathon20.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2439B9D05A2CF58395C8A997 /* Pods-Hackathon20.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hackathon20.release.xcconfig"; path = "Target Support Files/Pods-Hackathon20/Pods-Hackathon20.release.xcconfig"; sourceTree = "<group>"; };
 		7857CC9E260DEC0F0069C47B /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		7857CCAF260E127A0069C47B /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		7857CCB3260E4C880069C47B /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		78CE80B0260CEE3C00114487 /* Hackathon20.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hackathon20.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78CE80B3260CEE3C00114487 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78CE80B5260CEE3C00114487 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 				78CE80B5260CEE3C00114487 /* SceneDelegate.swift */,
 				78CE80B7260CEE3C00114487 /* ViewController.swift */,
 				78CE80C8260CF18A00114487 /* OperationViewController.swift */,
+				7857CCAF260E127A0069C47B /* HistoryViewController.swift */,
+				7857CCB3260E4C880069C47B /* TableViewCell.swift */,
 				78CE80B9260CEE3C00114487 /* Main.storyboard */,
 				78CE80BC260CEE4000114487 /* Assets.xcassets */,
 				78CE80BE260CEE4000114487 /* LaunchScreen.storyboard */,
@@ -214,7 +220,9 @@
 				7857CC9F260DEC0F0069C47B /* Model.swift in Sources */,
 				78CE80C9260CF18A00114487 /* OperationViewController.swift in Sources */,
 				78CE80B8260CEE3C00114487 /* ViewController.swift in Sources */,
+				7857CCB0260E127A0069C47B /* HistoryViewController.swift in Sources */,
 				78CE80B4260CEE3C00114487 /* AppDelegate.swift in Sources */,
+				7857CCB4260E4C880069C47B /* TableViewCell.swift in Sources */,
 				78CE80B6260CEE3C00114487 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

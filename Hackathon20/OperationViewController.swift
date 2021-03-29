@@ -63,6 +63,8 @@ class OperationViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
+        navigationController?.popToRootViewController(animated: true)
+        
     }
     
     func putMoney(sum:Float) {
@@ -75,30 +77,45 @@ class OperationViewController: UIViewController, UITextFieldDelegate {
         let now = df.string(from: Date())
         oper.timeAndDate = now
         
-        oper.operation = textLabel.text!
+        oper.operation = "Пополнение счета"
         oper.sum = sum
+        oper.type = "cashin"
         
         try! realm.write {realm.add(oper)}
     }
     
     func getMoney(sum:Float) {
         
+        let oper = Model()
+        
+        //записываем дату и время
+        let df = DateFormatter()
+        df.dateFormat = "dd-MM-yyyy hh:mm:ss"
+        let now = df.string(from: Date())
+        oper.timeAndDate = now
+        
+        oper.operation = "Списание со счета"
+        oper.sum = -sum
+        oper.type = "cashout"
+        
+        try! realm.write {realm.add(oper)}
+
     }
     
     func chargePhone(sum:Float) {
+        let oper = Model()
         
+        //записываем дату и время
+        let df = DateFormatter()
+        df.dateFormat = "dd-MM-yyyy hh:mm:ss"
+        let now = df.string(from: Date())
+        oper.timeAndDate = now
+        
+        oper.operation = "Пополнение счета телефона"
+        oper.sum = -sum
+        oper.type = "phone"
+        
+        try! realm.write {realm.add(oper)}
+
     }
-    
-    //func
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

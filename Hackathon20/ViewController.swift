@@ -65,7 +65,6 @@ class ViewController: UIViewController {
             balance += self.opertable[index].sum
         }
         balanceLabel.text = String(balance)
-        
     }
     
 }
