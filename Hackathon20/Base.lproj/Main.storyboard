@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="epT-i0-MyP">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="676"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="102" id="vqB-tq-0KW" customClass="TableViewCell" customModule="Hackathon20" customModuleProvider="target">
@@ -73,8 +73,25 @@
                             <constraint firstItem="epT-i0-MyP" firstAttribute="trailing" secondItem="Rdh-Z3-hzW" secondAttribute="trailing" id="reb-or-tvo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="MZ2-u6-xCs"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="MZ2-u6-xCs">
+                        <rightBarButtonItems>
+                            <barButtonItem title="sum" id="AGQ-qf-fkU">
+                                <connections>
+                                    <action selector="sortBySumBtn:" destination="qVk-Aj-6kg" id="BHA-id-B9w"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="dat" id="AtU-Jd-uzV">
+                                <connections>
+                                    <action selector="sortByDateBtn:" destination="qVk-Aj-6kg" id="zrY-fe-JJN"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="sortByDateButton" destination="AtU-Jd-uzV" id="xxj-Cw-Ugh"/>
+                        <outlet property="sortBySumButton" destination="AGQ-qf-fkU" id="IAt-aZ-WNg"/>
                         <outlet property="tableView" destination="epT-i0-MyP" id="CuW-c9-YUD"/>
                     </connections>
                 </viewController>
@@ -106,7 +123,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="AeS-4W-vIy" kind="show" identifier="putcash" id="dtC-Ja-gcj"/>
+                                    <segue destination="AeS-4W-vIy" kind="show" identifier="put" id="dtC-Ja-gcj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3sc-Xh-m5E">
@@ -126,7 +143,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="AeS-4W-vIy" kind="show" identifier="withdraw" id="ymp-Kg-nlk"/>
+                                    <segue destination="AeS-4W-vIy" kind="show" identifier="get" id="ymp-Kg-nlk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pqn-j6-ANu">
@@ -145,7 +162,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="AeS-4W-vIy" kind="show" identifier="chargephone" id="9yx-aV-uai"/>
+                                    <segue destination="AeS-4W-vIy" kind="show" identifier="tel" id="9yx-aV-uai"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Остаток на вашем счете" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NsX-F3-ANj">
@@ -310,7 +327,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dtC-Ja-gcj"/>
+        <segue reference="9yx-aV-uai"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

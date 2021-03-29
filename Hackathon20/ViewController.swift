@@ -20,7 +20,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //showBalance()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,23 +35,22 @@ class ViewController: UIViewController {
         
         let selection = segue.identifier ?? "NONE"
         
-        if selection == "putcash" {
+        dest.opr = selection
+        if selection == "put" {
             dest.txt = putcashBtn.titleLabel?.text ?? ""
             dest.img = UIImage(named: "put_cash")!
-            dest.opr = "put"
         }
         
-        if selection == "withdraw" {
+        if selection == "get" {
             dest.txt = witdrawBtn.titleLabel?.text ?? ""
             dest.img = UIImage(named: "get_cash")!
-            dest.opr = "get"
         }
         
-        if selection == "chargephone" {
+        if selection == "tel" {
             dest.txt = chargeBtn.titleLabel?.text ?? ""
             dest.img = UIImage(named: "mobile_phone")!
-            dest.opr = "tel"
         }
+        
     }
     
 }

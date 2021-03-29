@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 class Model:Object {
-    @objc dynamic var _id_ = 0
+    @objc dynamic var _id_ = ObjectId.generate()
     @objc dynamic var timeAndDate:String = ""
     @objc dynamic var operation:String = ""
     @objc dynamic var target:String = ""
@@ -25,7 +25,7 @@ class Oper {
     
     let realm = try! Realm()
     
-    lazy var opertable : Results<Model> = {self.realm.objects(Model.self)}()
+    lazy var opertable : Results<Model> = {self.realm.objects(Model.self).sorted(byKeyPath: "timeAndDate", ascending: false)}()
     
 
     var balance: Float {
@@ -39,17 +39,15 @@ class Oper {
     }
     
     
+    
     func addOper(sum:Float, type:String) {
         
         let model = Model()
-        var newId = 1
         let df = DateFormatter()
         df.dateFormat = "dd-MM-yyyy hh:mm:ss"
         let now = df.string(from: Date())
-        if opertable.count > 0 {
-            newId = opertable.last!._id_ + 1
-        }
-        model._id_ = newId
+        
+
         model.timeAndDate = now
         model.type = type
         switch type {
@@ -70,8 +68,14 @@ class Oper {
         try! self.realm.write {self.realm.add(model)}
     }
     
-        
+    func sortByDate(ascending:Bool) {
+        opertable = self.realm.objects(Model.self).sorted(byKeyPath: "timeAndDate", ascending: ascending)
+    }
     
+    func sortBySum(asceding:Bool) {
+        opertable = self.realm.objects(Model.self).sorted(byKeyPath: "sum", ascending: asceding)
+    }
+        
 }
 
 

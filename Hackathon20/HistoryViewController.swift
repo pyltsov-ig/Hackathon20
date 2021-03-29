@@ -11,8 +11,32 @@ import UIKit
 class HistoryViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var sortByDateButton: UIBarButtonItem!
+    @IBOutlet weak var sortBySumButton: UIBarButtonItem!
     
     let oper = Oper()
+    
+    var sortByDateAsc:Bool = false {
+        didSet (newValue){
+            if newValue {
+                sortByDateButton.image = UIImage(systemName: "arrow.down")
+            } else {
+                sortByDateButton.image = UIImage(systemName: "arrow.up")
+            }
+        }
+    }
+    
+    var sortBySumAsc:Bool = false {
+        didSet (newValue) {
+            if newValue {
+                sortBySumButton.image = UIImage(systemName: "arrowtriangle.down.fill")
+            } else {
+                sortBySumButton.image = UIImage(systemName: "arrowtriangle.up.fill")
+            }
+        }
+    }
+    
+     
     
 
     override func viewDidLoad() {
@@ -20,12 +44,34 @@ class HistoryViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        
+        sortByDateButton.image = UIImage(systemName: "arrow.down")
+        sortBySumButton.image = UIImage(systemName: "arrowtriangle.down.fill")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        tableView.reloadData()
+    }
+    
+  
+    @IBAction func sortByDateBtn(_ sender: UIBarButtonItem) {
+        if sortByDateAsc {
+            oper.sortByDate(ascending: false)
+        } else {
+            oper.sortByDate(ascending: true)
+        }
+        sortByDateAsc = !sortByDateAsc
+        tableView.reloadData()
+    }
+    
+    @IBAction func sortBySumBtn(_ sender: UIBarButtonItem) {
+        if sortBySumAsc {
+            oper.sortBySum(asceding: false)
+        } else {
+            oper.sortBySum(asceding: true)
+        }
+        sortBySumAsc = !sortBySumAsc
         tableView.reloadData()
     }
     
