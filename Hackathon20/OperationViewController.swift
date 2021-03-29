@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import RealmSwift
+//import RealmSwift
 
 class OperationViewController: UIViewController, UITextFieldDelegate {
 
@@ -14,14 +14,15 @@ class OperationViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var operImage: UIImageView!
     @IBOutlet weak var inputSumField: UITextField!
     
-    lazy var opertable : Results<Model> = {self.realm.objects(Model.self)}()
+    //lazy var opertable : Results<Model> = {self.realm.objects(Model.self)}()
     
     var txt:String = ""
     var img:UIImage = UIImage(named: "question")!
     var opr:String = ""
 
+    let oper = Oper()
     
-    let realm = try! Realm()
+    //let realm = try! Realm()
     
     
     
@@ -33,7 +34,7 @@ class OperationViewController: UIViewController, UITextFieldDelegate {
         
         inputSumField.delegate = self
         
-        print(realm.configuration.fileURL)
+        //print(realm.configuration.fileURL)
         
 
 
@@ -53,91 +54,11 @@ class OperationViewController: UIViewController, UITextFieldDelegate {
     @IBAction func okBtnAction(_ sender: UIButton) {
         
         guard let sum = Float(inputSumField.text!) else {return}
-        
-        switch self.opr{
-        case "put":
-            putMoney(sum: sum)
-        case "get":
-            getMoney(sum: sum)
-        case "chr":
-            chargePhone(sum: sum)
-        default:
-            return
-        }
+        self.oper.addOper(sum: sum, type: self.opr)
+
         
         navigationController?.popToRootViewController(animated: true)
         
     }
     
-    func putMoney(sum:Float) {
-        
-        let oper = Model()
-        var newId = 1
-        
-        //записываем дату и время
-        let df = DateFormatter()
-        df.dateFormat = "dd-MM-yyyy hh:mm:ss"
-        let now = df.string(from: Date())
-        oper.timeAndDate = now
-        
-        if opertable.count > 0 {
-            newId = opertable.last!._id_ + 1
-        }
-        oper._id_ = newId
-
-        
-        oper.operation = "Пополнение счета"
-        oper.sum = sum
-        oper.type = "cashin"
-        
-        
-        try! realm.write {realm.add(oper)}
-    }
-    
-    func getMoney(sum:Float) {
-        
-        let oper = Model()
-        var newId = 1
-        
-        //записываем дату и время
-        let df = DateFormatter()
-        df.dateFormat = "dd-MM-yyyy hh:mm:ss"
-        let now = df.string(from: Date())
-        oper.timeAndDate = now
-
-        if opertable.count > 0 {
-            newId = opertable.last!._id_ + 1
-        }
-        oper._id_ = newId
-
-        oper.operation = "Списание со счета"
-        oper.sum = -sum
-        oper.type = "cashout"
-        
-        try! realm.write {realm.add(oper)}
-
-    }
-    
-    func chargePhone(sum:Float) {
-        
-        let oper = Model()
-        var newId = 1
-        
-        //записываем дату и время
-        let df = DateFormatter()
-        df.dateFormat = "dd-MM-yyyy hh:mm:ss"
-        let now = df.string(from: Date())
-        oper.timeAndDate = now
-
-        if opertable.count > 0 {
-            newId = opertable.last!._id_ + 1
-        }
-        oper._id_ = newId
-
-        oper.operation = "Пополнение счета телефона"
-        oper.sum = -sum
-        oper.type = "phone"
-        
-        try! realm.write {realm.add(oper)}
-    }
 }

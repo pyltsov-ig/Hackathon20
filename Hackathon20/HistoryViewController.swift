@@ -6,15 +6,14 @@
 //
 
 import UIKit
-import RealmSwift
 
 
 class HistoryViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let realm = try! Realm()
-    lazy var opertable : Results<Model> = {self.realm.objects(Model.self)}()
+    let oper = Oper()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,23 +34,23 @@ class HistoryViewController: UIViewController {
 extension HistoryViewController:UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return opertable.count
+        return oper.opertable.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TableViewCell
         
-        cell.dateTimeLabel.text = opertable[indexPath.row].timeAndDate
-        cell.operatinLabel.text = opertable[indexPath.row].operation
-        cell.sumLabel.text = String(opertable[indexPath.row].sum)
-        let type = opertable[indexPath.row].type
+        cell.dateTimeLabel.text = oper.opertable[indexPath.row].timeAndDate
+        cell.operatinLabel.text = oper.opertable[indexPath.row].operation
+        cell.sumLabel.text = String(oper.opertable[indexPath.row].sum)
+        let type = oper.opertable[indexPath.row].type
         switch type {
-        case "cashin":
+        case "put":
             cell.operImage.image = UIImage(named: "ruble1")
-        case "cashout":
+        case "get":
             cell.operImage.image = UIImage(named: "ruble2")
-        case "phone":
+        case "tel":
             cell.operImage.image = UIImage(named: "itelephone")
         
         default:

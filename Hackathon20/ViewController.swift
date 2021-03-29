@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import RealmSwift
+
 
 class ViewController: UIViewController {
     
@@ -15,11 +15,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var chargeBtn: UIButton!
     @IBOutlet weak var balanceLabel: UILabel!
     
-    let realm = try! Realm()
-    lazy var opertable : Results<Model> = {self.realm.objects(Model.self)}()
-    
-    
-    
+    let oper = Oper()
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         //showBalance()
@@ -27,7 +25,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        showBalance()
+        balanceLabel.text = String(oper.balance)
         
     }
 
@@ -53,18 +51,8 @@ class ViewController: UIViewController {
         if selection == "chargephone" {
             dest.txt = chargeBtn.titleLabel?.text ?? ""
             dest.img = UIImage(named: "mobile_phone")!
-            dest.opr = "chr"
+            dest.opr = "tel"
         }
-    }
-    
-    func showBalance() {
-        
-        var balance:Float = 0
-        
-        for index in 0..<opertable.count {
-            balance += self.opertable[index].sum
-        }
-        balanceLabel.text = String(balance)
     }
     
 }
