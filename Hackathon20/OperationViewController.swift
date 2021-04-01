@@ -27,6 +27,10 @@ class OperationViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
+        view.addGestureRecognizer(tap)
+        
         self.textLabel.text = txt
         self.operImage.image = img
         
@@ -50,6 +54,10 @@ class OperationViewController: UIViewController, UITextFieldDelegate {
         guard let sum = Float(inputSumField.text!) else {return}
         self.oper.addOper(sum: sum, type: self.opr)
         navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @objc func hideKeyboard() {
+        view.endEditing(true)
     }
     
 }

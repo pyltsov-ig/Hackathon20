@@ -26,7 +26,7 @@ class HistoryViewController: UIViewController {
         }
     }
     
-    var sortBySumAsc:Bool = false {
+    var sortBySumAsc:Bool = true {
         didSet (newValue) {
             if newValue {
                 sortBySumButton.image = UIImage(systemName: "arrowtriangle.down.fill")
@@ -89,7 +89,7 @@ extension HistoryViewController:UITableViewDelegate, UITableViewDataSource {
         
         cell.dateTimeLabel.text = oper.opertable[indexPath.row].timeAndDate
         cell.operatinLabel.text = oper.opertable[indexPath.row].operation
-        cell.sumLabel.text = String(oper.opertable[indexPath.row].sum)
+        cell.sumLabel.text = String(format:"%.2f",oper.opertable[indexPath.row].sum)
         let type = oper.opertable[indexPath.row].type
         switch type {
         case "put":

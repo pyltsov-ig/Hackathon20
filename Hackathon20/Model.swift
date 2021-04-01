@@ -25,7 +25,7 @@ class Oper {
     
     let realm = try! Realm()
     
-    lazy var opertable : Results<Model> = {self.realm.objects(Model.self).sorted(byKeyPath: "timeAndDate", ascending: false)}()
+    lazy var opertable : Results<Model> = {self.realm.objects(Model.self).sorted(byKeyPath: "sum", ascending: true)}()
     
 
     var balance: Float {
@@ -69,7 +69,7 @@ class Oper {
     }
     
     func sortByDate(ascending:Bool) {
-        opertable = self.realm.objects(Model.self).sorted(byKeyPath: "timeAndDate", ascending: ascending)
+        opertable = self.realm.objects(Model.self).sorted(byKeyPath: "_id_", ascending: ascending)
     }
     
     func sortBySum(asceding:Bool) {

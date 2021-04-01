@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        balanceLabel.text = String(oper.balance) + " руб."
+        balanceLabel.text = String(format:"%.2f", oper.balance) + " руб."
         
     }
 
